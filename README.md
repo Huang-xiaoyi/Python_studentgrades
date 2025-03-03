@@ -1,2 +1,3 @@
 # Python_studentgrades
 简陋的学生成绩单
+第一天学python ，整合了python基础的字典，List，函数等功能做了一个很简易的学生成绩表，内含学生成绩的增删改查和排序功能
