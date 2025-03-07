@@ -1,7 +1,7 @@
 import os
 
-def sum(a,b):
-   return a+b
+def sum(sc):
+   return sc[0]+sc[1]
 
 def isIn():    #查找学生
    search = input('找谁？')
@@ -22,32 +22,26 @@ def add_Student():
       score[name] = [chinese, Smath]
       print('添加成功')
 
-def down_sort(s):     #冒泡排序  升序
-   for i in range(len(s)):
-      for j in range(len(s)-i-1):
-         if sum(score[s[j]][0], score[s[j]][1]) > sum(score[s[j+1]][0], score[s[j+1]][1]) :
-            s[j], s[j+1] = s[j+1], s[j]
+def down_sort(s):     #  升序
+   d_score = sorted(score, key = lambda x : sum(score[x]) )
    for x in range(len(s)):
-        if s[x] in score:
-            total = sum(score[s[x]][0], score[s[x]][1])
-            print(s[x],score[s[x]][0],score[s[x]][1], total)
+        if d_score[x] in score:
+            total = sum(score[d_score[x]])
+            print(d_score[x],score[d_score[x]][0],score[d_score[x]][1], total)
 
 
-def up_sort(s):         #冒泡排序  降序
-   for i in range(len(s)):
-      for j in range(len(s)-i-1):
-         if sum(score[s[j]][0], score[s[j]][1]) < sum(score[s[j+1]][0], score[s[j+1]][1]) :
-            s[j], s[j+1] = s[j+1], s[j]
+def up_sort(s):         #  降序
+   u_score = sorted(score, key = lambda x : sum(score[x]), reverse=True )
    for x in range(len(s)):
-        if s[x] in score:
-            total = sum(score[s[x]][0], score[s[x]][1])
-            print(s[x],score[s[x]][0],score[s[x]][1], total)
+        if u_score[x] in score:
+            total = sum(score[u_score[x]])
+            print(u_score[x],score[u_score[x]][0],score[u_score[x]][1], total)
 
 def Select_All():
     print('名字  语文  数学  总分')
     for x in range(len(student)):
         if student[x] in score:
-            total = sum(score[student[x]][0], score[student[x]][1])
+            total = sum(score[student[x]])
             print(student[x],score[student[x]][0],score[student[x]][1], total)
     while True:
         sub_choose = input('''
